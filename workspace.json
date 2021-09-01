@@ -2,7 +2,8 @@
   "version": 2,
   "projects": {
     "nx-ddd": "apps/nx-ddd",
-    "nx-ddd-e2e": "apps/nx-ddd-e2e"
+    "nx-ddd-e2e": "apps/nx-ddd-e2e",
+    "shared-util-test": "libs/shared/util-test"
   },
   "cli": {
     "defaultCollection": "@nrwl/angular",

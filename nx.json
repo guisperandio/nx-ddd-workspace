@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "npmScope": "nx-ddd-workspace",
   "affected": {
     "defaultBase": "master"
