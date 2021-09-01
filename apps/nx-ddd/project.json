@@ -1,0 +1,91 @@
+{
+  "projectType": "application",
+  "root": "apps/nx-ddd",
+  "sourceRoot": "apps/nx-ddd/src",
+  "prefix": "nx-ddd-workspace",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/nx-ddd",
+        "index": "apps/nx-ddd/src/index.html",
+        "main": "apps/nx-ddd/src/main.ts",
+        "polyfills": "apps/nx-ddd/src/polyfills.ts",
+        "tsConfig": "apps/nx-ddd/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/nx-ddd/src/favicon.ico", "apps/nx-ddd/src/assets"],
+        "styles": ["apps/nx-ddd/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/nx-ddd/src/environments/environment.ts",
+              "with": "apps/nx-ddd/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "nx-ddd:build:production"
+        },
+        "development": {
+          "browserTarget": "nx-ddd:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "nx-ddd:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/nx-ddd/src/**/*.ts",
+          "apps/nx-ddd/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/nx-ddd"],
+      "options": {
+        "jestConfig": "apps/nx-ddd/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

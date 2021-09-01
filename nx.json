@@ -26,13 +26,5 @@
       }
     ]
   },
-  "projects": {
-    "nx-ddd": {
-      "tags": []
-    },
-    "nx-ddd-e2e": {
-      "tags": [],
-      "implicitDependencies": ["nx-ddd"]
-    }
-  }
+  "projects": {}
 }

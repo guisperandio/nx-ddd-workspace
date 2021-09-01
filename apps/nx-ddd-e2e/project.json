@@ -1,0 +1,28 @@
+{
+  "root": "apps/nx-ddd-e2e",
+  "sourceRoot": "apps/nx-ddd-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/nx-ddd-e2e/cypress.json",
+        "devServerTarget": "nx-ddd:serve:development",
+        "tsConfig": "apps/nx-ddd-e2e/tsconfig.json"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "nx-ddd:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/nx-ddd-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["nx-ddd"]
+}
